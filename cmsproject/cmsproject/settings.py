@@ -9,9 +9,7 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-import mimetypes
-mimetypes.add_type("text/css", ".css", True)
-mimetypes.add_type("application/javascript", ".js", True)
+
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -22,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-y0782^b*(^-48xdoseft41v&qr0x9d1wgmbha#%7l!af=qh988'
+SECRET_KEY = 'django-insecure-oy91wl3b0a8tqe4$u1oibj*ber&uk-41&u_7o_&g3o=n-w^c1+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,11 +40,10 @@ INSTALLED_APPS = [
     'adminapp',
     'doctorapp',
     'labtechapp',
-    'receptionistapp',
+    'authapp',
     'pharmacistapp',
-    'authenticationapp',
+    'receptionistapp',
     'rest_framework',
-    'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [
@@ -81,18 +78,16 @@ WSGI_APPLICATION = 'cmsproject.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cms_api_proj',
+        'NAME': 'ems_api_project',
         'USER': 'root',
         'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': 3306,
     }
 }
-
 
 
 # Password validation
@@ -129,18 +124,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-BASE_DIR = Path(__file__).resolve().parent.parent
-STATIC_URL = '/static/'
-STATICFILES_DIRS = []  # Optional, if you have extra static dirs
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    ]
-}
