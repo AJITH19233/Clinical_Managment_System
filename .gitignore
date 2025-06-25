@@ -1,7 +1,11 @@
-__pycache_/
- 
+# Ignore Python cache
+__pycache__/
+*.py[cod]
+
+# Ignore virtual environment
 myenv/
 
-#ignore migration
-
-**/migration/*.py
+# Ignore Django migration files
+**/migrations/
+**/migrations/*.pyc
+**/migrations/__pycache__/
